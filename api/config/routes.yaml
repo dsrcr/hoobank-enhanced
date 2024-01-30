@@ -1,0 +1,15 @@
+controllers:
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute
+
+api_hello:
+  path: /api/hello
+  controller: App\Controller\ApiController::hello
+  methods: [GET]
+
+app_useful_links:
+  path: "/api/useful-links"
+  controller: 'App\Controller\UsefulLinksController::getUsefulLinks'
+  methods: ["GET"]
