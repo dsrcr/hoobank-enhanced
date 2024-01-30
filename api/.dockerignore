@@ -1,0 +1,33 @@
+
+# Ignore development files and directories
+.env
+/var
+/vendor
+/bin
+/node_modules
+/public/build
+/public/uploads
+
+# Ignore version control files
+.git
+.gitignore
+.gitattributes
+
+# Ignore Composer files
+composer.json
+composer.lock
+
+# Ignore Symfony cache and logs
+/var/cache/*
+/var/log/*
+
+# Ignore user-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore Docker-related files
+.dockerignore
+Dockerfile
+.docker
+docker-compose.yml
+.dockerignore

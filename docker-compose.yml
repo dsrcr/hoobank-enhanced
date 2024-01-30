@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  symfony-api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - APP_ENV=dev
+      - APP_DEBUG=1
+      - APP_SECRET=your_secret_key
+      - DATABASE_URL=mysql://db_user:db_password@mysql:3306/db_name
+
+  preact-frontend:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./path/to/preact-frontend:/app
+    environment:
+      - NODE_ENV=development
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: db_name
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_password
+    ports:
+      - "3306:3306"
+
+networks:
+  default:
+    external:
+      name: my_network
